@@ -121,7 +121,7 @@ $(function() {
            });
          });
 
-         it('loads new feeds', function(){
+         it('new feeds load', function(){
            expect(initialFeed).not.toBe(secondFeed);
          });
       });
