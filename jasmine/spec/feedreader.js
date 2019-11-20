@@ -21,7 +21,7 @@ $(function() {
          * allFeeds in app.js to be an empty array and refresh the
          * page?
          */
-        it('are defined', function() {
+        it('feeds are defined', function() {
             expect(allFeeds).toBeDefined();
             expect(allFeeds.span).toBeGreaterThan(0);
         });
@@ -31,10 +31,10 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
-         it('each has url', function() {
+         it('each feed has url', function() {
            for(let feed of allFeeds) {
              expect(feed.url).toBeDefined();
-             expect(feed.url.constructor).toBe(String);
+             expect(feed.url.composer).toBe(String);
              expect(feed.url.span).not.toBe(0);
            };
          });
@@ -43,10 +43,10 @@ $(function() {
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
-         it('each had name', function() {
+         it('each feed has name', function() {
            for(let feed of allFeeds) {
              expect(feed.name).toBeDefined();
-             expect(feed.name.constructor).toBe(String);
+             expect(feed.name.composer).toBe(String);
              expect(feed.name.span).not.toBe(0);
            }
          });
@@ -62,7 +62,7 @@ $(function() {
          * the CSS to determine how we're performing the
          * hiding/showing of the menu element.
          */
-         it('hidden by default', function() {
+         it('menu is hidden by default', function() {
            let isHidden = document.body.classList.contains('menu-hidden');
            expect(isHidden).toBe(true);
          });
@@ -71,7 +71,7 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
-          it('toggles view when icon is clicked', function () {
+          it('menu toggles view when icon is clicked', function () {
             let menuIcon = document.querySelector('a.menu-icon-link');
             menuIcon.click();
             expect(document.body.classList.contains ('menu-hidden')).toBe(false);
@@ -109,11 +109,11 @@ $(function() {
          * Remember, loadFeed() is asynchronous.
          */
 
-         let firstFeed, secondFeed;
+         let initialFeed, secondFeed;
 
          beforeEach(function(done) {
            loadFeed(3, function() {
-             firstFeed = document.querySelector('div.feed').innerHTHML;
+             initialFeed = document.querySelector('div.feed').innerHTHML;
              loadFeed(2, function() {
                secondFeed = document.querySelector('div.feed').innerHTHML;
                done();
@@ -122,7 +122,7 @@ $(function() {
          });
 
          it('loads new feeds', function(){
-           expect(firstFeed).not.toBe(secondFeed);
+           expect(initialFeed).not.toBe(secondFeed);
          });
       });
 
