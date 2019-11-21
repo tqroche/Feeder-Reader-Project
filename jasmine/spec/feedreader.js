@@ -110,9 +110,9 @@ $(function() {
 
          beforeEach(function(done) {
            loadFeed(3, function() {
-             initialFeed = document.querySelector('div.feed').innerHTHML;
+             initialFeed = document.querySelector('div.feed').innerHTML;
              loadFeed(2, function() {
-               secondFeed = document.querySelector('div.feed').innerHTHML;
+               secondFeed = document.querySelector('div.feed').innerHTML;
                done();
              });
            });
