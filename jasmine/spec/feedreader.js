@@ -23,7 +23,7 @@ $(function() {
          */
         it('feeds are defined', function() {
             expect(allFeeds).toBeDefined();
-            expect(allFeeds.span).toBeGreaterThan(0);
+            expect(allFeeds.length).toBeGreaterThan(0);
         });
 
 
@@ -34,8 +34,7 @@ $(function() {
          it('each feed has url', function() {
            for(let feed of allFeeds) {
              expect(feed.url).toBeDefined();
-             expect(feed.url.composer).toBe(String);
-             expect(feed.url.span).not.toBe(0);
+             expect(feed.url.length).not.toBe(0);
            };
          });
 
@@ -46,8 +45,7 @@ $(function() {
          it('each feed has name', function() {
            for(let feed of allFeeds) {
              expect(feed.name).toBeDefined();
-             expect(feed.name.composer).toBe(String);
-             expect(feed.name.span).not.toBe(0);
+             expect(feed.name.length).not.toBe(0);
            }
          });
     });
@@ -56,7 +54,6 @@ $(function() {
     /* TODO: Write a new test suite named "The menu" */
         describe('The Menu', function() {
 
-        })
         /* TODO: Write a test that ensures the menu element is
          * hidden by default. You'll have to analyze the HTML and
          * the CSS to determine how we're performing the
@@ -97,7 +94,7 @@ $(function() {
          it('has entries in feed container', function(){
            let feedContainer = document.querySelector('div.feed');
            let entries = feedContainer.querySelectorAll('article.entry');
-           expect(entries.span).toBeGreaterThan(0);
+           expect(entries.length).toBeGreaterThan(0);
          });
       });
 
